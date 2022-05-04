@@ -4,7 +4,7 @@ pytoShearLab is a toolbox containing a 2D shearlet transform in pytorch which is
 
 ## Implementation Details
 
-The toolbox currently consists of a 2D shearlet transform for $N\times N$ size images, where shearlet transform together with inverse and adjoint operations are available.
+The toolbox currently consists of a 2D shearlet transform for NxN sized images, where shearlet transform together with inverse and adjoint operations are available.
 
 ## Repository Structure
 The repository is structured at follows:
