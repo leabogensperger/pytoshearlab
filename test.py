@@ -1,6 +1,8 @@
+from curses import color_pair
 import os
 import cv2
 import torch
+import numpy as np
 import pytoShearLab2D
 import matplotlib.pyplot as plt
 
@@ -25,6 +27,14 @@ if __name__ == "__main__":
     image_rec = sl2D.apply_inv(coeffs)
     print('max. diff between input and recovered image: ', torch.max(torch.abs(image-image_rec)))
     
+    fig, ax = plt.subplots(1,3)
+    for a in ax:
+        a.axis('off')
+    ax[0].imshow(image[0].cpu()), ax[0].set_title('image')
+    ax[1].imshow(image_rec[0].cpu()), ax[1].set_title('reconstruction')
+    ax[2].imshow(torch.abs(image-image_rec)[0].cpu()), ax[2].set_title('max. diff. %.8f' %(torch.max(torch.abs(image-image_rec)[0].cpu())))
+    plt.show()
+
     ####################################################################################################################
     # test adjoint operator
     for _ in range(10):
@@ -32,4 +42,4 @@ if __name__ == "__main__":
         v = torch.randn_like(coeffs)
         lhs = sl2D.apply(u).reshape(-1).dot(v.reshape(-1))
         rhs = sl2D.apply_transpose(v).reshape(-1).dot(u.reshape(-1))
-        print(torch.max(torch.abs(lhs-rhs)))
+        print('adjointness test residual:', torch.abs(lhs-rhs).item())
