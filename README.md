@@ -1,6 +1,6 @@
 # pytoshearlab
 
-pytoShearLab is a toolbox containing a 2D shearlet transform in pytorch which is substantially based on [pyShearLab](http://na.math.uni-goettingen.de/pyshearlab/) by Stefan Look and ShearLab 3D by Rafael Reisenhofer.
+pytoShearLab is a toolbox containing a 2D shearlet transform in pytorch which is substantially based on [pyShearLab](http://na.math.uni-goettingen.de/pyshearlab/) by Stefan Loock and ShearLab 3D by Rafael Reisenhofer.
 
 ## Implementation Details
 
